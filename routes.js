@@ -27,7 +27,7 @@ const fs = require('fs');
         });
         return req.on('end',() => {
             const parentBody = Buffer.concat(body).toString();
-            const msg = parentBody.split('=')[1];
+            const msg = parentBody.split('=')[0];
             fs.writeFile('message.txt',msg, err => {
                 res.statusCode = 302;
                 res.setHeader('location', '/');
@@ -45,7 +45,7 @@ const fs = require('fs');
  }
 
  module.exports = requestHandler;
- 
+
 //  module.exports = {
 //     handler: requestHandler,
 //     someText : 'Some hard coded text here',
