@@ -5,7 +5,6 @@ const router = express.Router();
 router.get('/',(req,res,next) => {
     fs.readFile('message.txt',(err,data) => {
         res.send(`${data}<form onsubmit="document.getElementById('userName').value=localStorage.getItem('username')" action="/" method="POST">
-        <input type="text" name="username">
         <input type="hidden" name="username" id="userName">
         <input type="text" name="msg">
         <button type="submit">Send</button>
